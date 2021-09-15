@@ -55,7 +55,7 @@ export default function PermanentDrawerLeft() {
         <div className={classes.toolbar} />
         <Divider />
         <List>
-          {['Products', 'Suppliers', 'Clients', 'Something else'].map((text, index) => (
+          {['Products', 'Suppliers', 'Clients', 'addproduct', 'Barcode'].map((text, index) => (
             <Link to={`/${text}`}>
             <ListItem button key={text}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>

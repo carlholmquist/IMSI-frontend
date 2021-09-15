@@ -8,6 +8,7 @@ import DenseTable from './components/table/table.component';
 import PermanentDrawerLeft from './components/drawer/drawer.component';
 import ButtonAppBar from './components/relative_action_bar/action_bar';
 import Addproduct from "./pages/addproduct";
+import BarcodePrint from "./pages/barcode_print";
 import { Grid, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
@@ -64,7 +65,10 @@ function App() {
           </div>
         </Route>
         <Route path="/addproduct">
-          <Addproduct/>
+          <Addproduct className={classes.general}/>
+        </Route>
+        <Route path="/barcode">
+          <BarcodePrint className={classes.general}/>
         </Route>
       </Switch>
       
