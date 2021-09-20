@@ -55,7 +55,7 @@ export default function PermanentDrawerLeft() {
         <div className={classes.toolbar} />
         <Divider />
         <List>
-          {['Products', 'Suppliers', 'Clients', 'addproduct', 'Barcode'].map((text, index) => (
+          {['Products', 'Suppliers', 'Clients', 'addproduct'].map((text, index) => (
             <Link to={`/${text}`}>
             <ListItem button key={text}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
@@ -66,11 +66,13 @@ export default function PermanentDrawerLeft() {
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          {['scanner', 'barcode'].map((text, index) => (
+            <Link to={`/${text}`}>
             <ListItem button key={text}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
+            </Link>
           ))}
         </List>
       </Drawer>

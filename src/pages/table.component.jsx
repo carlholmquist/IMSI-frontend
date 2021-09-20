@@ -11,12 +11,14 @@ import Paper from '@material-ui/core/Paper';
 const useStyles = makeStyles({
   root: {
     display: 'flex',
+    width: '100%',
   },
   table: {
-    minWidth: 650,
+    minWidth: '650',
   },
   tablecell: {
     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    width: '100hv',
   },
   title: {
     display: 'block',
@@ -29,7 +31,7 @@ export default function DenseTable() {
   const classes = useStyles();
 
   React.useEffect(()=>{
-    fetch('http://localhost:3500/products', {
+    fetch('https://4f2e-70-123-6-94.ngrok.io/products', {
           })
   .then(res => res.json())
   .then(data => {
