@@ -1,26 +1,25 @@
-import React, { useEffect, useState,} from "react";
+import React from "react";
 import Barcode from "react-barcode";
 
-import { makeStyles } from "@material-ui/core";
+//import { makeStyles } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 
-const useStyles = makeStyles({
-    root: {
-        display: 'block',
-        width: '100%',
-        height: '100vh',
-    },
-    form: {
-        display: 'flex',
-        'flex-direction': 'column',
-        'flex-wrap': 'wrap',
-    },
-    formitem: {
-        width: '60%',
-    },
-})
+// const useStyles = makeStyles({
+//     root: {
+//         display: 'block',
+//         width: '100%',
+//         height: '100vh',
+//     },
+//     form: {
+//         display: 'flex',
+//         'flex-direction': 'column',
+//         'flex-wrap': 'wrap',
+//     },
+//     formitem: {
+//         width: '60%',
+//     },
+// })
 
-const number = 'PRB12';
 
 // const classes = useStyles();
 class BarcodeGen extends React.Component {

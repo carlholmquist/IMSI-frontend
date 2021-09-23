@@ -5,14 +5,16 @@ import {
   Route
 } from "react-router-dom";
 
+// Hook Imports
+import { useState } from "react";
+
 //Component Imports
-import DenseTable from './pages/table.component';
 import ButtonAppBar from './components/relative_action_bar/action_bar';
 import Scanner from "./pages/scanner";
 import TemporaryDrawer from "./components/drawer/temporarydrawer";
+import Received from "./components/received/received";
 
 //Page Imports
-import Addproduct from "./pages/Products";
 import BarcodePrint from "./pages/barcodes";
 import Products from "./pages/Products";
 
@@ -22,7 +24,7 @@ import { Grid, makeStyles } from '@material-ui/core';
 //Style Sheet
 const useStyles = makeStyles({
   root : {
-    display: 'flex',
+    display: 'block',
     border: 5,
     borderRadius: 3,
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
@@ -48,16 +50,27 @@ const useStyles = makeStyles({
 
 function App() {
   const  classes = useStyles();
+  const [state, setState] = useState({left: false});
+
+  const toggleDrawer = (open) => (event) => {
+    console.log('This worked');
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+    setState({ 'left': open });
+  };
+
   return (
     <Router>
       <div className={classes.root}>
-      <TemporaryDrawer />
+      <ButtonAppBar toggleDrawer={toggleDrawer} className={classes.bar} />
+      <TemporaryDrawer state={state} toggleDrawer={toggleDrawer} />
       
       <Switch>
-        <Route path="/Products">
+        <Route path="/products">
           <Grid container>
             <Grid item xs={12}>
-              <ButtonAppBar className={classes.bar} />
+              
             </Grid>
             <Grid item>
               <Products />
@@ -69,14 +82,14 @@ function App() {
             <h1> Supplier Table</h1>
           </div>
         </Route>
-        <Route path="/addproduct">
-          <Addproduct className={classes.general}/>
-        </Route>
         <Route path="/barcode">
           <BarcodePrint className={classes.general}/>
         </Route>
         <Route path="/scanner">
           <Scanner />
+        </Route>
+        <Route path="/receiving">
+          <Received />
         </Route>
       </Switch>
       

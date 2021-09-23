@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+// Import Packages
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+// Import Components
+import { Button } from '@material-ui/core';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -7,8 +11,11 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { Button } from '@material-ui/core';
 
+// Import Style hook
+import { makeStyles } from '@material-ui/core/styles';
+
+// Declare Styles
 const useStyles = makeStyles({
   root: {
     display: 'block',
@@ -29,11 +36,24 @@ const useStyles = makeStyles({
 
 
 
+
+
+
 export default function Table2(props) {
   const classes = useStyles();
 
+  // Destructure variables from props
   const {rowHeaders, products} = props;
-  console.log(props,"TESTING");
+
+  // Create  
+  function handler(product) {
+    const newTo = {
+      pathname: '/receiving',
+      product: product,
+    }
+    return newTo
+  }
+
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} size="small" aria-label="a dense table">
@@ -59,9 +79,11 @@ export default function Table2(props) {
               <TableCell align="right">{row.product_reorder_size}</TableCell>
               <TableCell align="right">{row.product_unit}</TableCell>
               <TableCell> 
-                <Button variant="outlined" style={{backgroundColor: '#12824C', color: '#FFFFFF'}} size="small">
-                  Add
-                </Button>
+                <Link to={handler(row)} onClick={()=>console.log('click link')}>
+                  <Button variant="outlined" onClick={()=> console.log('click')} style={{backgroundColor: '#12824C', color: '#FFFFFF'}} size="small">
+                    Add
+                  </Button>
+                </Link>
               </TableCell>
             </TableRow>
           ))}

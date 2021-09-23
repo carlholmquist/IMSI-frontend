@@ -1,7 +1,6 @@
 import React, { useEffect, useState} from "react";
 
 import { Grid, makeStyles, TextField } from "@material-ui/core";
-import DenseTable from "./table.component";
 
 import Table2 from "../components/Table/table2.component";
 
@@ -17,6 +16,7 @@ const useStyles = makeStyles({
         display: 'flex',
         'flex-direction': 'column',
         'flex-wrap': 'wrap',
+        width: '100%'
         
     },
     formitem: {
@@ -48,7 +48,7 @@ export default function Products() {
         'product_unit': ''}]);
     
     // Initiate state for our search, enabling searching for products
-    const [search,setSearch] = useState();
+    const [search,setSearch] = useState('');
 
     // Fetching product data from back end
     useEffect(()=>{
@@ -57,13 +57,12 @@ export default function Products() {
       .then(res => res.json())
       .then(data => {
         setProduct(data);
-        console.log(data);
       })
       },[]);
     
     // Filter back end product data based on search criteria
     const filteredProducts = product.filter((product) => {
-        if (search===0) {
+        if (search==='') {
             return product.product_name
         } else {
             return product.product_name.includes(search)
@@ -72,13 +71,10 @@ export default function Products() {
 
     const classes = useStyles();
 
-    //Update our search state
+    // Update our search state
     const handleChange = (event) => {
         setSearch(event.target.value);
-        console.log(search,'Inside searh Change')
     }
-
-    console.log(search)
 
     return(
         <div className={classes.root}>

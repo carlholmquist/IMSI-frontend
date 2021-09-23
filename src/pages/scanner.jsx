@@ -28,7 +28,7 @@ function Scanner() {
             if (result) setData(result.text)
             else setData('Not Found')
         }}
-      /> : <h1></h1>
+      /> : <h1>Hey</h1>
       }
       
       <p className={classes.root} >{data}</p>
