@@ -3,14 +3,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Import Components
-import { Button } from '@material-ui/core';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import { 
+  Button, 
+  Table, 
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper 
+} from '@material-ui/core';
 
 // Import Style hook
 import { makeStyles } from '@material-ui/core/styles';
@@ -39,7 +41,7 @@ const useStyles = makeStyles({
 
 
 
-export default function Table2(props) {
+export default function ProductTable(props) {
   const classes = useStyles();
 
   // Destructure variables from props
@@ -81,7 +83,7 @@ export default function Table2(props) {
               <TableCell> 
                 <Link to={handler(row)} onClick={()=>console.log('click link')}>
                   <Button variant="outlined" onClick={()=> console.log('click')} style={{backgroundColor: '#12824C', color: '#FFFFFF'}} size="small">
-                    Add
+                    Product Page
                   </Button>
                 </Link>
               </TableCell>

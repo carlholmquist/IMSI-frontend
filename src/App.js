@@ -9,10 +9,10 @@ import {
 import { useState } from "react";
 
 //Component Imports
-import ButtonAppBar from './components/relative_action_bar/action_bar';
+import ButtonAppBar from './components/NavBar/NavBar';
 import Scanner from "./pages/scanner";
-import TemporaryDrawer from "./components/drawer/temporarydrawer";
-import Received from "./components/received/received";
+import TemporaryDrawer from "./components/Drawer/temporarydrawer";
+import Received from "./components/Received/Received";
 
 //Page Imports
 import BarcodePrint from "./pages/barcodes";

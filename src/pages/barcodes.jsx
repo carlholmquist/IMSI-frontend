@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 
 import { makeStyles } from "@material-ui/core";
 import {useReactToPrint} from "react-to-print";
-import BarcodeGen from "../components/barcode/Barcode";
+import BarcodeGen from "../components/Barcode/Barcode";
 
 const useStyles = makeStyles({
     root: {

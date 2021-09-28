@@ -1,8 +1,11 @@
+// Import Packages
 import React, { useEffect, useState} from "react";
 
+// Import Styles
 import { makeStyles, TextField } from "@material-ui/core";
+import { urlPath } from "../functions/helpers";
 
-
+// Define Styles
 const useStyles = makeStyles({
     root: {
         display: 'block',
@@ -20,10 +23,16 @@ const useStyles = makeStyles({
 })
 
 export default function AddProduct() {
-    
+    // Init State
+    const [product,setProduct] = useState({
+        product_category: '',
+    });
+    const [categorys,setCategorys] = useState([{category_name: 'Choose Category'}])
+    const classes = useStyles();
 
+    // Fetch Caetgory Data
     useEffect(()=>{
-        fetch('http://localhost:3500/categorys', {
+        fetch(`${urlPath}/categorys`, {
               })
       .then(res => res.json())
       .then(data => {
@@ -32,12 +41,7 @@ export default function AddProduct() {
       })
       },[]);
 
-    const [product,setProduct] = useState({
-        product_category: '',
-    });
-    const [categorys,setCategorys] = useState([{category_name: 'Choose Category'}])
-    const classes = useStyles();
-
+    // Update state on change
     const handleChange = (event) => {
         console.log(event.target.value)
         console.log(product);

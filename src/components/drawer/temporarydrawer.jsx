@@ -6,7 +6,6 @@ import { Divider } from '@material-ui/core';
 import {ListItem} from '@material-ui/core';
 import {ListItemText} from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import { Button } from '@material-ui/core';
 
 
 export default function TemporaryDrawer(props) {
@@ -32,7 +31,7 @@ export default function TemporaryDrawer(props) {
         <Divider />
         <List>
           {['scanner', 'barcode'].map((text, index) => (
-            <Link to={`/${text}`}>
+            <Link ket={index} to={`/${text}`}>
             <ListItem button key={text}>
               <ListItemText primary={text} />
             </ListItem>
@@ -44,7 +43,6 @@ export default function TemporaryDrawer(props) {
 
   return (
     <div>
-          <Button onClick={toggleDrawer(true)}>Menu</Button>
           <Drawer
             anchor={'left'}
             open={props.state['left']}

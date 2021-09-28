@@ -2,7 +2,7 @@ import React, { useEffect, useState} from "react";
 
 import { Grid, makeStyles, TextField } from "@material-ui/core";
 
-import Table2 from "../components/Table/table2.component";
+import ProductTable from "../components/Table/Table";
 
 
 const useStyles = makeStyles({
@@ -52,8 +52,7 @@ export default function Products() {
 
     // Fetching product data from back end
     useEffect(()=>{
-        fetch('http://localhost:3500/products', {
-              })
+      fetch('http://localhost:3500/products')
       .then(res => res.json())
       .then(data => {
         setProduct(data);
@@ -78,25 +77,24 @@ export default function Products() {
 
     return(
         <div className={classes.root}>
-        <Grid className={classes.grid}>
-            <h1>Search for recieved product</h1>
-            {/* className={classes.form} */}
-            <form  noValidate autoComplete="off">
-                <TextField
-                    className={classes.formitem}
-                    id="Search"
-                    label="Search Product"
-                    variant="filled"
-                    color="primary"
-                    onChange={handleChange}
+            <Grid className={classes.grid}>
+                <h1>Search for recieved product</h1>
+                <form  noValidate autoComplete="off">
+                    <TextField
+                        className={classes.formitem}
+                        id="Search"
+                        label="Search Product"
+                        variant="filled"
+                        color="primary"
+                        onChange={handleChange}
+                    />
+                </form>
+                <ProductTable 
+                    rowHeaders={rowHeaders}
+                    products={filteredProducts} 
+                    className={classes.table}
                 />
-            </form>
-            <Table2 
-                rowHeaders={rowHeaders}
-                products={filteredProducts} 
-                className={classes.table}
-                />
-        </Grid>
+            </Grid>
         </div>
     )
 }

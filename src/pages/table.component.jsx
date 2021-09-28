@@ -7,6 +7,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { urlPath } from '../functions/helpers';
+
 
 const useStyles = makeStyles({
   root: {
@@ -31,7 +33,7 @@ export default function DenseTable() {
   const classes = useStyles();
 
   React.useEffect(()=>{
-    fetch('https://4f2e-70-123-6-94.ngrok.io/products', {
+    fetch(`${urlPath}/products`, {
           })
   .then(res => res.json())
   .then(data => {

@@ -11,3 +11,7 @@ export function barcodeGen(n) {
 
     return ("" + number).substring(add); 
 }
+
+export function urlPath() {
+    return 'http://localhost:3500'
+}
