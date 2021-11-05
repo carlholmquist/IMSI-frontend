@@ -30,7 +30,7 @@ export default function BarcodePrint() {
 
     return(
         <div className={classes.root} >
-            <BarcodeGen className={classes.form} ref={componentRef} />
+            <BarcodeGen className={classes.form} compRef={componentRef} />
             <button className={classes.form} onClick={(event) => {handlePrint(event); console.log('test');}}>Print this out!</button>
         </div>
     )

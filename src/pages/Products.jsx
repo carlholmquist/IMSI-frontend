@@ -3,6 +3,7 @@ import React, { useEffect, useState} from "react";
 import { Grid, makeStyles, TextField } from "@material-ui/core";
 
 import ProductTable from "../components/Table/Table";
+import { urlPath } from "../functions/helpers";
 
 
 const useStyles = makeStyles({
@@ -52,7 +53,7 @@ export default function Products() {
 
     // Fetching product data from back end
     useEffect(()=>{
-      fetch('http://localhost:3500/products')
+        fetch(`${urlPath}/products`)
       .then(res => res.json())
       .then(data => {
         setProduct(data);

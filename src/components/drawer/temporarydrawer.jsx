@@ -19,7 +19,7 @@ export default function TemporaryDrawer(props) {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-          {['Products', 'Suppliers', 'Clients'].map((text, index) => (
+          {['Products', 'Suppliers', 'Clients','ItemInfo','consumeitem'].map((text, index) => (
             <Link to={`/${text}`}>
             <ListItem button key={text}>
              

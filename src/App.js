@@ -13,6 +13,7 @@ import ButtonAppBar from './components/NavBar/NavBar';
 import Scanner from "./pages/scanner";
 import TemporaryDrawer from "./components/Drawer/temporarydrawer";
 import Received from "./components/Received/Received";
+import RunLog from "./pages/RunLog";
 
 //Page Imports
 import BarcodePrint from "./pages/barcodes";
@@ -20,6 +21,9 @@ import Products from "./pages/Products";
 
 //Style Imports
 import { Grid, makeStyles } from '@material-ui/core';
+import ItemInfo from "./pages/ItemInfo";
+import ConsumeItem from "./pages/ConsumeItem";
+import JobOrders from "./pages/JobOrders";
 
 //Style Sheet
 const useStyles = makeStyles({
@@ -90,6 +94,18 @@ function App() {
         </Route>
         <Route path="/receiving">
           <Received />
+        </Route>
+        <Route path="/iteminfo">
+          <ItemInfo />
+        </Route>
+        <Route path="/consumeitem">
+          <ConsumeItem />
+        </Route>
+        <Route path="/runlog">
+          <RunLog />
+        </Route>
+        <Route path="/createjoborder">
+          <JobOrders />
         </Route>
       </Switch>
       

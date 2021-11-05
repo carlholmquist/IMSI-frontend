@@ -11,27 +11,25 @@ const useStyles = makeStyles({
     }
 })
 
-function Scanner() {
- 
-  const [ data, setData ] = React.useState('Not Found');
+function Scanner(props) {
+  const {setSearch, scannertoggle, setScannertoggle, onSubmit} = props;
   const classes = useStyles();
  
   return (
     <div>
-      <h1 className={classes.root} >Scan a barcode</h1>
-      { data==='Not Found' ?
+      <form onSubmit={onSubmit}>
+      
         <BarcodeScannerComponent
           className={classes.video}
           width={300}
           height={300}
           onUpdate={(err, result) => {
-            if (result) setData(result.text)
-            else setData('Not Found')
-        }}
-      /> : <h1>Hey</h1>
-      }
-      
-      <p className={classes.root} >{data}</p>
+            if (result) {
+              setSearch(result.text)
+              setScannertoggle(!scannertoggle)
+            } else (console.log('In scanner, if else else ran'))
+        }} />
+      </form>
     </div>
   )
 }

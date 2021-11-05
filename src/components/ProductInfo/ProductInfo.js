@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-import { barcodeGen } from "../../functions/helpers";
+import { barcodeGen, urlPath } from "../../functions/helpers";
 import Barcode from "react-barcode";
 
 import { Grid, TextField, makeStyles } from "@material-ui/core";
@@ -39,8 +39,12 @@ export default function ProductInfo(props) {
     const [item, setItem] = useState([{product_item_barcode:'No items in Inventory'}]);
     console.log(product);
 
+    // Figure out how to persist state between reloads
+    // console.log(JSON.parse(window.localStorage.getItem('item')));
+    
+
     useEffect(() => {
-        fetch(`http://localhost:3500/quantity`, {
+        fetch(`${urlPath}/quantity`, {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(product)
@@ -49,7 +53,6 @@ export default function ProductInfo(props) {
         .then(data => {
             setItem(data)
             setQuantity(data.reduce((acc,val)=> acc+val.product_item_quantity ,0))
-            
         })
 
         console.log('useEffect running');
@@ -64,7 +67,7 @@ export default function ProductInfo(props) {
             product_id: product.product_id,
         }
 
-        fetch(`http://localhost:3500/addproduct`, {
+        fetch(`${urlPath}/addproduct`, {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(addProduct)

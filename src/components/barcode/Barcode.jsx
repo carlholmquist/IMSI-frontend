@@ -26,7 +26,7 @@ class BarcodeGen extends React.Component {
     constructor () {
         super();
         this.state = {
-            locations: ['Lol']
+            locations: ['lol']
         }
     }
 
@@ -60,7 +60,7 @@ class BarcodeGen extends React.Component {
         </div>
             {this.state.locations.map(location => (
                 <div>
-                    <Barcode format={"ean13"}  value={location} />
+                    <Barcode ref={this.props.compRef}  value={location} />
                 </div>
             ))}
         </div>
@@ -68,3 +68,4 @@ class BarcodeGen extends React.Component {
 };
 
 export default BarcodeGen;
+

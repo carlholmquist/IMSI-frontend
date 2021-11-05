@@ -12,6 +12,6 @@ export function barcodeGen(n) {
     return ("" + number).substring(add); 
 }
 
-export function urlPath() {
-    return 'http://localhost:3500'
-}
+export const urlPath = `http://192.168.100.116:3500`
+//export const urlPath = `http://localhost:3500`
+//export const urlPath = `https://a728-70-123-6-94.ngrok.io`
